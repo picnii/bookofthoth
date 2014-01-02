@@ -1,0 +1,16 @@
+{
+	"name":"webmatch",
+	"menus":[
+		{
+			"name":"FTP", "url":"profile"
+		},
+		{
+			"name":"Web list", "url":"admin","hideIfAdmin":true
+		}
+		,
+		{
+			"name":"ADMIN", "url":"admin", "showIfAdmin":true
+		}
+	]
+
+}

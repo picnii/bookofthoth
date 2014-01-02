@@ -1,0 +1,29 @@
+<section class="container">
+	<div class="register">
+		<form ng-submit="register()" role="form">
+			<div class="form-group">
+				<label for="name_form">Name</label>
+
+				<input id="name_form" class="form-control"  ng-model="name" type="text" required> 
+				<label for="lastname_form">Lastname</label>
+				<input ng-model="lastname"  id="lastname_form" class="form-control" type="text" required>
+			</div>
+			<div class="form-group">
+				<label for="account_form">Account ID</label>
+				<input id="account_form" class="form-control"  ng-model="account_id" type="text" required>
+			</div>
+			<div class="form-group">
+				<label for="email_form">Email address</label>
+				<input id="email_form" class="form-control"  ng-model="email" type="email" required>
+			</div>
+			<div class="form-group">
+				<label for="password_form">Password</label>
+				<input id="password_form" class="form-control"  ng-model="password" type="password" required>
+				<label for="repassword_form">Re Password</label>
+				<input id="repassword_form" class="form-control" ng-model="repassword" type="password" required>
+			</div>
+
+			<input type="submit" class="btn" value="Register"/>
+		</form>
+	</div>
+</section>

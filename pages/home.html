@@ -1,0 +1,24 @@
+<section class="container">
+	<div class="cover">
+		<img  src="images/cover.jpg"/>
+	</div>
+	<div class="login">
+		<form ng-submit="login();" role="form">
+			<div class="form-group">
+				<label for="email_form">Email address</label>
+				<input id="email_form" class="form-control" ng-model="email" type="email" placeholder="example@todsob.com">
+			</div>
+			<div class="form-group">
+				<label  for="password_form">Password</label>
+				<input class="form-control"  id="password_form" ng-model="password" type="password" placeholder="Your password">
+			</div>
+			<div style="text-align:center">
+				<input type="submit" class="btn btn-primary btn-lg btn-block" value="Login"/><br/><br/>
+					<a href="#/register" class="btn btn-warning btn-lg btn-block">Register</a>
+			</div>
+			
+		</form>
+
+	
+	</div>
+</section>

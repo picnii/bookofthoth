@@ -1,0 +1,33 @@
+<li id="countdown-widget" style="background:#face00;" ng-show="canShow" ng-controller="CountDownWidgetCtrl"><a id="countdown-dropdown" href="" class="dropdown-toggle" data-toggle="dropdown">
+	
+	<span class="time">{{countdown.hours}}</span>
+	<span class="colon">:</span>
+	<span class="time">{{countdown.mins}}</span>
+	<span class="colon">:</span>
+	<span class="time">{{countdown.secs}}</span>
+	<ul class="dropdown-menu">
+		<li><a href=""><span class="task">{{task}}</span></a></li>
+	</ul>
+</a></li>
+<li id="countdown-app"></li>
+<style type="text/css">
+	
+#countdown-widget .time
+{
+	color:black;
+	font-weight: bold;
+}
+
+#countdown-widget .colon
+{
+
+}
+
+</style>
+<script type="text/javascript">
+$("#countdown-dropdown").hover(function() {
+  $(this).click();
+}, function() {
+  $(this).click();
+});
+</script>

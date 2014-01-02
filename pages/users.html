@@ -1,0 +1,57 @@
+<header ng-include="mainMenuLocation"></header>
+<section class="container">
+	<div style="text-align:center;">
+		<input type="text" ng-model="search.$"><input type="checkbox" ng-model="strict"> Equality <input type="checkbox" ng-model="isSearchTagOnly" ng-change="updateSearchFilter(isSearchTagOnly, 'tags_form')"> Tag Only <input type="checkbox" ng-model="isSearchNameOnly" ng-change="updateSearchFilter(isSearchNameOnly, 'name')"> Name Only 
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<td>
+					<input type="checkbox" ng-model="isSelectAll" ng-change="updateAllSelected()" ></td>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Last Name</td>
+				<td>
+					
+					<button class="btn btn-primary" ng-hide="isUpdateAllTagsMode" ng-click="isUpdateAllTagsMode=true;all_tags_form=''">Tags</button>
+					<div style="display:inline-block"  ng-show="isUpdateAllTagsMode">
+						<form style="display:inline-block" ng-submit="updateAllTags()">
+							<input type="text" ng-model="all_tags_form"><input type="checkbox" ng-model="isAddTagOnly">Not replace old tags.
+						</form>
+						<button class="btn btn-info btn-sm" type="button" ng-click="updateAllTags"><span class="glyphicon glyphicon-pencil"></span></button>
+					</div>
+
+				</td>
+			</tr>
+		</thead>
+		<tbody >
+			<tr ng-repeat="item in users | filter:search:strict" class="user-selected-{{item.isSelected}}">
+				<td><a href="" ng-click="item.isSelected = !item.isSelected" class="user-selected-choice user-selected-{{item.isSelected}}"></a>
+
+					<!--<input type="checkbox" class="user-selected-choice" ng-model="item.isSelected" >--></td>
+				<td>{{item.id}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.lastname}}</td>
+				<td>
+					<div ng-hide="item.isEditMode">
+						<span ng-repeat="tag in item.str_tags">
+							<a href="" ng-click="searchTag(tag)" >{{tag}}</a>
+						</span>
+						
+							<button class="btn btn-info btn-sm" type="button" ng-click="edit(item)"><span class="glyphicon glyphicon-pencil"></span></button>
+					</div>
+					<div ng-show="item.isEditMode">
+						<form ng-submit="updateTags(item)">
+							<input id="item-{{item.id}}" ng-model="item.tags_form" type="text">
+							<input type="submit" ng-show="false">
+						</form>
+						<button class="btn btn-info btn-sm" type="button" ng-click="updateTags(item)"><span class="glyphicon glyphicon-pencil"></span></button>
+					</div>
+					
+				</td>
+			</tr>
+		</tbody>
+		
+	</table>
+
+</section>

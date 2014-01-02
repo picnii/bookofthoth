@@ -1,0 +1,49 @@
+<section ng-show="isAdmin()"  ng-controller="WebMatchAdminCtrl" class="container">
+	
+	<div class="row">
+		<div class="col-lg-5 col-md-5">
+			<user-list ng-model="selectedUsers" users="users" show-tag="{{classRoom.code_name}}" on-loaded="afterLoadUser"></user-list >
+		</div>
+		<div class="col-lg-3 col-md-3">
+			<b style="font-size:18px;">Web List</b>
+			<table class="table">
+				<tr><td></td><td>Available Site</td></tr>
+				<tr  ng-hide="item.isActivate" ng-repeat="item in webs" class="item-selected-{{item.isSelected}}">
+					<td  >
+						<div ng-show="selectedUsers.length==1"><input type="radio" name="web" ng-model="web" ng-value="item.name" />
+						</div>
+					</td>
+					<td><span style="font-size:21px;">{{item.name}}</span></td>
+				</tr>
+			</table>
+			
+		</div>
+		<div class="col-lg-4 col-md-4">
+			<div ng-show="selectedUsers.length==1">
+				<button ng-click="match()" class="btn btn-primary">Single Match()</button>
+				<button ng-click="unmatch()" class="btn btn-danger">Un Match()</button><br/>
+			</div>
+			<div ng-show="selectedUsers.length>1">
+				<button   class="btn btn-danger" ng-click="multiUnMatch()">Unmatch Selected Users</button><br/>
+				<h4>Match With Websites(student_numbers)</h4>
+				<input type="number" placeholder="from" ng-model="web_from" ng-change="updateWebs()"><input type="number" placeholder="to" ng-model="web_to" ng-change="updateWebs()"><br/>
+				<span ng-hide="canMultiMatch()" >{{checkMatchStatus()}}</span><br/>
+				<button ng-show="canMultiMatch()"  class="btn btn-primary" ng-click="multiMatch()">Multiple Match</button>
+			</div>
+			
+			
+		</div>
+	</div>
+	
+	
+
+</section>
+<section   ng-controller="WebMatchListCtrl">
+	<a ng-show="wp_ready" target="_blank" ng-href="{{user_url}}" class="btn btn-info">My Wordpress</a>
+	<table class="table">
+		<tr ng-repeat="item in web_users">
+			<td>{{item.name}}</td>
+			<td><a ng-href="{{item.url}}"  target="_blank">{{item.url}}</a></td>
+		</tr>
+	</table>
+</section>

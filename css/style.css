@@ -1,0 +1,61 @@
+body
+{
+	background: #eee;
+}
+
+div.login
+{
+	padding-top:40px;
+	
+}
+
+div.cover
+{
+	text-align: center;
+	padding-top: 20px;
+}
+
+div.cover img
+{
+	height: 300px;
+	width: auto;
+}
+
+
+tr.user-activate
+{
+	background: #0FACE0;
+	color:white;
+}
+
+tr.user-selected-true
+{
+	background: #face00;
+}
+
+tr.user-activate.user-selected-true
+{
+	background: #00face;
+}
+
+a.user-selected-choice
+{
+	display: block;
+	border-radius: 5px;
+	height: 30px;
+	width:30px;
+	background: #434343;
+}
+
+a.user-selected-choice.user-selected-true
+{
+	background: #eee;
+}
+
+
+
+tr.item-selected-true
+{
+	background: #FF00EE;
+	color:white;
+}

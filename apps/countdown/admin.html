@@ -1,0 +1,31 @@
+
+
+
+<section id="countdown-app" class="admin" ng-controller="CountDownCtrl">
+		<div class="loading" ng-hide="canSave">
+			<h2>Loading</h2>
+		</div>
+		<div class="task" ng-show="canSave">
+			<div class="inner">
+				<input type="text" ng-model="task" />
+			</div>
+		</div>
+		<div class="watch" ng-show="canSave">
+			<div class="inner">
+				<form ng-submit="startCountDown()">
+					<span class="time"><input type="number" class="span1" ng-model="countdown.hours" ></span>
+					<span class="colon">:</span>
+					<span class="time"><input type="number" class="span1" ng-model="countdown.mins" ></span>
+					<span class="colon">:</span>
+					<span class="time"><input type="number" class="span1" ng-model="countdown.secs" ></span>
+					<input type="submit" style="display:none;"/>
+				</form>
+			</div>
+		</div>
+		<div class="control" ng-show="canSave">
+			<button ng-click="startCountDown()" class="btn btn-lg btn-primary">จับเวลา</button>
+
+		</div>
+
+</section>
+<link rel="stylesheet" type="text/css" href="apps/countdown/countdown.css">

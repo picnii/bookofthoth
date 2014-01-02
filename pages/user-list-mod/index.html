@@ -1,0 +1,16 @@
+<input type="text" ng-model="search.$">
+<table class="table">
+	<tr>
+		<td><input type="checkbox" ng-model="isSelectAll" ng-change="updateAllSelected()" ></td></td>
+		<td>Name</td>
+		<td>Email</td>
+	</tr>
+	<tr ng-repeat="item in users | filter:search:strict" class="user-selected-{{item.isSelected}} {{item.rowClass}}">
+		<td><a href="" ng-click="doSelect(item)" class="user-selected-choice user-selected-{{item.isSelected}}"></a></td>
+		<td>
+			<a ng-show="item.url" ng-href="{{item.url}}" target="_blank">{{item.name}}</a>
+			<span ng-hide="item.url"  >{{item.name}}</span>
+		</td>
+		<td>{{item.email}}</td>
+	</tr>
+</table>

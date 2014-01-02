@@ -1,0 +1,10 @@
+{
+	"name":"countdown",
+	"menus":[
+		{
+			"name":"CountDown", "url":"admin", "showIfAdmin":true
+		}
+	],
+	"widget": { "url":"widget", "type":"menu" }
+
+}

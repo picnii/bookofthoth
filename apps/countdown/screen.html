@@ -1,0 +1,26 @@
+<section id="countdown-app" ng-controller="CountDownScreenCtrl">
+	<div class="task">
+		<div class="inner">
+			<span >{{task}}</span>
+		</div>
+	</div>
+	<div style="text-align:center">
+		<canvas id="myChart" width="400" height="400"></canvas>
+	</div>
+	<div class="watch">
+		<div class="inner">
+			<span class="time">{{countdown.hours}}</span>
+			<span class="colon">:</span>
+			<span class="time">{{countdown.mins}}</span>
+			<span class="colon">:</span>
+			<span class="time">{{countdown.secs}}</span>
+		</div>
+	</div>
+	
+	<div class="control">
+		<button ng-click="togglePause()" class="btn btn-primary">{{control.pause.name}}</button><br/>
+		
+	</div>
+
+</section>
+<link rel="stylesheet" type="text/css" href="apps/countdown/countdown.css">

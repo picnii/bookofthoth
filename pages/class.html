@@ -1,0 +1,8 @@
+<header ng-include="mainMenuLocation"></header>
+
+	
+<section class="container">
+	<ul>
+		<li ng-repeat="item in classes"><a ng-href="#/class/{{item.code}}">{{item.name}}</a></li>
+	</ul>
+</section>
