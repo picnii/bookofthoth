@@ -23,8 +23,27 @@ function HomeCtrl($scope, $rootScope, $location, User)
 		$location.path('class');
 }
 
-function RegisterCtrl($scope, $rootScope, $location, User)
+function RegisterCtrl($scope, $rootScope, $location, User, Avartar)
 {
+
+	$scope.avartars = Avartar.query(function(data){
+		$scope.chooseAvartar($scope.avartars[0])
+	});
+
+	$scope.resetChooseAvartar = function()
+	{
+		for(var i =0; i < $scope.avartars.length; i++)
+			$scope.avartars[i].isSelected = false;
+	}
+
+	$scope.chooseAvartar = function(avartar)
+	{
+		$scope.resetChooseAvartar();
+		//avartar.isSelected = false;
+		$scope.avartars[avartar.id].isSelected = true;
+		$scope.profile_picture = 'images/avartar/' + avartar.name;
+	}
+
 	$scope.register = function()
 	{
 		if($scope.password != $scope.repassword)
@@ -36,7 +55,8 @@ function RegisterCtrl($scope, $rootScope, $location, User)
 			lastname:$scope.lastname,
 			email:$scope.email,
 			password:$scope.password,
-			account_id:$scope.account_id
+			account_id:$scope.account_id,
+			profile_picture:$scope.profile_picture
 		}
 		$result = User.register($data_user, function(data){
 			if(typeof(data.token) != "undefined")
@@ -60,7 +80,7 @@ function ClassCtrl($scope, Class, $location,App)
 	
 }
 
-function ClassUnitCtrl($scope, $location, $routeParams, ClassInfo, App)
+function ClassUnitCtrl($scope, $location, $routeParams, ClassInfo, App, $rootScope)
 {
 
 	$scope.class_path = "classes/";
@@ -131,6 +151,8 @@ function ClassUnitCtrl($scope, $location, $routeParams, ClassInfo, App)
 		$scope.documents = $scope.createListType(data.documents);
 		$scope.videos = $scope.createListType(data.videos);
 		$scope.files = $scope.createListType(data.files);
+		if(data.permission < 3 && !$scope.isAdmin())
+			$location.path('class')
 		//load config each apps
 		$scope.app_count = 0;
 		$scope.app_count_max = data.apps.length;
@@ -138,6 +160,19 @@ function ClassUnitCtrl($scope, $location, $routeParams, ClassInfo, App)
 		{
 			var app_name = data.apps[i]
 			App.get({name:app_name}, function(app_data){
+				var current_app_config = app_data.app_config;
+				console.log(app_data.name)
+				//console.log('update=>' + app_name + 'Config')
+				//window[app_name + 'Config'] = current_app_config;
+				for(var name in current_app_config)
+				{
+					console.log('update : ' + name + ' = ' + current_app_config[name])
+					console.log(app_data.name + 'Config')
+					window[app_data.name + 'Config'][name] = current_app_config[name]
+				}
+				console.log('update rootScope: ' + (app_data.name + 'Config'))
+				$rootScope[app_data.name + 'Config'] = window[app_data.name + 'Config'];
+				console.log($rootScope)
 				$scope.app_configs.push(app_data);
 				$scope.app_count++;
 				if($scope.app_count >= $scope.app_count_max)
@@ -208,6 +243,12 @@ function ClassUnitCtrl($scope, $location, $routeParams, ClassInfo, App)
 	$scope.loadWidget = function(app_config)
 	{
 		$scope.widgetLocation = 'apps/' + app_config.name + '/' + app_config.widget.url + ".html";
+	}
+
+	$scope.goAppPage = function(app_name, url)
+	{
+		var screen_item_page = {app_name:app_name, type:"apps", url:url};
+		$scope.loadPage(screen_item_page);
 	}
 
 	$scope.loadPage = function(item)

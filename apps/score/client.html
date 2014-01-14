@@ -1,0 +1,13 @@
+<section ng-controller="ScoreClientCtrl">
+	<h2>{{issue.name}}</h2>
+	<div class="info">
+		Score :
+		<div class="progress">
+		  <div class="progress-bar" role="progressbar" aria-valuenow="{{student.score}}" aria-valuemin="0" aria-valuemax="{{max_score}}" style="width: {{student.score/max_score*100}}%;">
+		    <span class="sr-only">{{student.score}} point(s)</span>
+		  </div>
+		</div>
+
+
+	</div>
+</section>

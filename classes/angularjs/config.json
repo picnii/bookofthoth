@@ -1,0 +1,67 @@
+{
+	"id":2,
+	"name":"Angular JS",
+	"code_name":"angularjs",
+	"documents":[
+		{
+			"name":"คู่มือการใช้งาน", "url":"document/index.html"
+		},
+		{
+			"name":"คู่มือการใช้งาน(Live)", "url":"https://docs.google.com/document/d/1foX5BcsrOdvlzmLZFnUON267ol7w_zuQZ7O2mWlvIqI/" , "isExternal":true
+		}
+	],
+	"videos":[
+		{
+			"name":"การติดตั้ง", "url":"videos/install.mp4"
+		},
+		{
+			"name":"การสร้าง Page", "url":"videos/page.mp4"
+		},
+		{
+			"name":"การสร้าง Post 1", "url":"videos/post.mp4"
+		},
+		{
+			"name":"การสร้าง Post 2", "url":"videos/post2.mp4"
+		},
+		{
+			"name":"การตั้ง Password ให้ Post", "url":"videos/password.mp4"
+		},
+		{
+			"name":"การสร้าง Categories และ Tag", "url":"videos/TagCategories.mp4"
+		},
+		{
+			"name":"การจัดการ Media", "url":"videos/uploadPic.mp4"
+		},
+		{
+			"name":"การใช้ Theme", "url":"videos/Theme.mp4"
+		},
+		{
+			"name":"การใช้ Theme 2", "url":"videos/widget.mp4"
+		},
+		{
+			"name":"การใช้ Plugin", "url":"videos/plugin.mp4"
+		},
+		{
+			"name":"การใช้ Setting", "url":"videos/setting.mp4"
+		}
+	],
+	"files":[
+		{
+			"name":"Filezilla", "url":"files/filezilla.exe"
+		},
+		{
+			"name":"Wordpress", "url":"files/wordpress.zip"
+		}
+	],
+	"apps":[
+		"webmatch",
+		"countdown"
+	],
+	"menus":[
+		{"name":"เอกสาร", "url":"document" },
+		{"name":"วิดีโอ", "url":"videos" },
+		{"name":"ไฟล์", "url":"files" }	
+	],
+	"widget":"countdown",
+	"permission":2
+}

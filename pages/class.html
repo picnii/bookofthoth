@@ -3,6 +3,11 @@
 	
 <section class="container">
 	<ul>
-		<li ng-repeat="item in classes"><a ng-href="#/class/{{item.code}}">{{item.name}}</a></li>
+		<li class="class-list" ng-repeat="item in classes">
+			<a ng-href="#/class/{{item.code}}"><img ng-src="classes/{{item.code}}/logo.png"></a>
+			<div class="name">
+				<span>{{item.name}}</span>
+			</div>
+		</li>
 	</ul>
 </section>

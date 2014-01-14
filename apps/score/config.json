@@ -1,0 +1,13 @@
+{
+	"name":"score",
+	"menus":[
+		{
+			"name":"SCORE ADMIN", "url":"admin", "showIfAdmin":true
+		}
+	],
+	"app_config":{
+		"server":"192.168.1.30",
+		"port":"8081"
+	}
+
+}

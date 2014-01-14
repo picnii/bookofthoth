@@ -5,6 +5,10 @@
 			"name":"CountDown", "url":"admin", "showIfAdmin":true
 		}
 	],
-	"widget": { "url":"widget", "type":"menu" }
+	"widget": { "url":"widget", "type":"menu" },
+	"app_config":{
+		"server":"192.168.1.30",
+		"port":"8080"
+	}
 
 }

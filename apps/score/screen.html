@@ -1,0 +1,22 @@
+<section ng-controller="ScoreScreenCtrl">
+<button ng-click="back()">Back</button>
+<table>
+	<div class="task">
+		{{issue.name}}
+	</div>
+	<table ng-show="isGameOn" class="table">
+		<tr ng-repeat="student in students">
+			<td class="col-lg-2 col-md-2" ><img ng-src="{{student.profile_picture}}"</td>
+			<td  class="col-lg-2 col-md-2" >{{student.name}}</td>
+			<td  class="col-lg-8 col-md-8" >
+				<div class="progress">
+				  <div class="progress-bar" role="progressbar" aria-valuenow="{{student.score}}" aria-valuemin="0" aria-valuemax="{{max_score}}" style="width: {{student.score/max_score*100}}%;">
+				    <span class="sr-only">{{student.score}} point(s)</span>
+				  </div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</table>
+
+</section>

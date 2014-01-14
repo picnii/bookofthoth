@@ -59,3 +59,46 @@ tr.item-selected-true
 	background: #FF00EE;
 	color:white;
 }
+
+div.avartar-selected-true
+{
+	background: #333;
+}
+
+div.avartar-choices
+{
+	display: inline-block;
+}
+
+img.profile-picture
+{
+	height: 20px;
+	width: auto;
+	-webkit-filter: grayscale; /*sepia, hue-rotate, invert....*/
+	-webkit-filter: brightness(0%); 
+}
+
+li.class-list
+{
+	list-style: none;
+	display: inline-block;
+	position: relative;
+	padding-right: 20px;
+}
+
+li.class-list img
+{
+	height: 128px;
+	width: auto;
+}
+
+li.class-list div.name
+{
+	text-align: center;
+	padding-top: 5px;
+}	
+
+li.class-list div.name span
+{
+
+}

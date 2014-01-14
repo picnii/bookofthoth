@@ -1,0 +1,40 @@
+<section id="select-form" ng-controller="ScoreListCtrl">
+		<table class="table">
+			<thead>
+				<tr >
+					<td>Name</td>
+					<td>Scorer(จำนวนคน)</td>
+					<td>Status</td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="issue in issues" class="issue-{{issue.isLive}}">
+					<td><a href="" ng-click="loadIssue(issue)">{{issue.name}}</a></td>
+					<td>{{issue.scorersCount}}</td>
+					<td>{{issue.status | scoreIssueStatus}}</td>
+					<td>
+						<button ng-click="onScreenIssue(issue)" ng-hide="issue.isLive" class="btn">ON SCREEN</button>
+						<button ng-click="onScreenIssue(issue)" ng-show="issue.isLive" class="btn btn-success">SCREEN</button>
+						<button ng-click="offIssue(issue)" ng-show="issue.isLive" class="btn btn-warning">OFF SCREEN</button>
+					</td>
+				</tr>
+			</tbody>
+			
+		</table>
+		<button class="btn btn-primary" ng-click="createIssue()">Create New</button>
+		<style type="text/css">
+			tr.issue-true
+			{
+				background: #287E81;
+				color:white;
+			}
+
+
+			tr.issue-true a
+			{
+				color:white;
+			}
+		</style>
+	</section>
+	<div id="score-script" ></div>

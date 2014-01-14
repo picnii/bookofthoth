@@ -18,8 +18,16 @@ var data_service = angular.module('dataServices', ['ngResource']).
   });
 }).
   factory('App', function($resource){
-  return $resource('apps/:name/config.json', {}, {
+  /*return $resource('apps/:name/config.json', {}, {
     get: {method:'GET', params:{}}
+  });*/
+  return $resource('/admin/index.php?r=appConfig/get&name=:name', {}, {
+    get: {method:'GET', params:{}}
+  });
+}).
+  factory('Avartar', function($resource){
+  return $resource('images/avartar/list.json', {}, {
+    query: {method:'GET', params:{}, isArray:true}
   });
 })
 

@@ -1,4 +1,4 @@
-var WebMatchConfig = {
+var webmatchConfig = {
 	max:100,
 	ftp_server:"192.168.1.30",
 	default_pwd:"picnii.me",
@@ -13,19 +13,19 @@ var WebMatchConfig = {
 
 var convertToWebUrl = function(name)
 {
-	var _url = "http://"+ WebMatchConfig.ftp_server+"/"+ name
+	var _url = "http://"+ webmatchConfig.ftp_server+"/"+ name
 	return _url
 }
 
 var createWebs = function()
 {
 	var webs = []
-	for(var i = 1; i <= WebMatchConfig.max ;i++)
+	for(var i = 1; i <= webmatchConfig.max ;i++)
 	{
 		if( i < 10)
-			var _name = WebMatchConfig.prefix + '0' + i;
+			var _name = webmatchConfig.prefix + '0' + i;
 		else
-			var _name = WebMatchConfig.prefix + i;
+			var _name = webmatchConfig.prefix + i;
 		var _url = convertToWebUrl(_name);
 		webs.push({name:_name, url:_url, isActivate:false, isSelected:false});
 
@@ -38,13 +38,14 @@ var createWebs = function()
 function WebMatchCtrl($scope, $rootScope, User, WebMatchView)
 {
 	//view current user config
-	$scope.ftp_server = WebMatchConfig.ftp_server;
+	console.log($rootScope)
+	$scope.ftp_server = $rootScope.webmatchConfig.ftp_server;
 	$scope.webmatch = WebMatchView.view({user_id:$rootScope.user.id}, function(){
 		$scope.db_user_name = $scope.webmatch.web_url;
 		$scope.ftp_username = $scope.webmatch.web_url;
 		$scope.db_name = $scope.webmatch.web_url;
-		$scope.db_password = WebMatchConfig.default_pwd;
-		$scope.ftp_password = WebMatchConfig.default_pwd;
+		$scope.db_password = $rootScope.webmatchConfig.default_pwd;
+		$scope.ftp_password = $rootScope.webmatchConfig.default_pwd;
 	});
 	
 }
@@ -251,9 +252,9 @@ function WebMatchAdminCtrl($scope, $rootScope, $filter, User, WebMatch, WebMatch
 			{
 				var user = $scope.users[u_index];
 				if(web_number < 10)
-					var web = WebMatchConfig.prefix + '0' +web_number;
+					var web = webmatchConfig.prefix + '0' +web_number;
 				else
-					var web = WebMatchConfig.prefix + web_number;
+					var web = webmatchConfig.prefix + web_number;
 
 				console.log("("+user.id+","+web+")")
 				WebMatchMatch.match({user_id:user.id, token:$rootScope.user.token, admin_id:$rootScope.user.id, website:web},function(){
@@ -283,7 +284,7 @@ function WebMatchAdminCtrl($scope, $rootScope, $filter, User, WebMatch, WebMatch
 		
 		if(isNaN(web_count) || web_count < 2 || ( $scope.web_to == null) || $scope.web_from ==null)
 		{
-			for(var i =1; i < WebMatchConfig.max;i++)
+			for(var i =1; i < $rootScope.webmatchConfig.max;i++)
 			{
 				var name = "student_" + i;
 				if(i < 10)

@@ -1,0 +1,74 @@
+<section ng-controller="ScoreAdminCtrl">
+	<button class="btn btn-inverse" ng-click="goPageList()">Back</button>
+
+	<section id="create-form" >
+		<form  ng-submit="save()">
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-sd-2">
+					<h2>Issue</h2>
+					<div class="form-group"	>
+						<label for="task-form">Task</label><br/>
+						<input id="task-form" type="text" ng-model="task" />
+					</div>
+					<div class="form-group"	>
+						<label for="max-form">Max Score</label>
+						<input id="max-form" type="number" ng-model="max_score" />
+					</div>
+					<div class="form-group"	>
+						<label for="init-form">Init Score</label>
+						<input id="init-form"   type="number"  ng-model="init_score" />
+					</div>
+					<div class="form-group"	 >
+						<label for="init-form">Status</label>
+						<input id="init-form"    ng-model="issue_status" />
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sd-6">
+					<h2>Paticipation</h2>
+					<user-list ng-model="selectedUsers" ng-hide="isUpdateMode" users="users" show-tag="{{classRoom.code_name}}" on-loaded="afterLoadUser"></user-list >
+					<ul ng-show="isUpdateMode">
+						<li ng-repeat="student in students">{{student.name}}</li>
+					</ul>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sd-4">
+					<h2>Confirmation</h2>
+					Task : {{getScoreData().task}}<br/>
+					Students Count : {{getScoreData().students.length}}<br/>
+					<input type="submit" value="Save">
+					
+					<h3>Data</h3>
+					<pre>{{getScoreData() | json}}</pre>
+					
+				</div>
+			</div>
+			
+			
+		</form>
+
+		
+	</section>
+	<section id="edit-form"  ng-show="isGameOn">
+		<h2 >Students</h2>
+		<table class="table">
+			<tr ng-repeat="student in students">
+				<td class="col-lg-2 col-md-2"><img ng-src="{{student.profile_picture}}"></td>
+				<td  class="col-lg-2 col-md-2" >{{student.name}}</td>
+				<td  class="col-lg-8 col-md-8"><form ng-submit="saveScore(student);">
+						<input type="number" ng-model="student.score">
+						<input type="submit" ng-show="false" />
+					</form>
+				</td>
+			</tr>
+		</table>
+		<button ng-show="isLiveMode" ng-click="goPageScreen();">Screen</button>
+		<button  ng-click="reset()">Reset</button>
+
+	</section>
+</section>
+<style type="text/css">
+	#create-form
+	{
+		padding-top: 20px;
+	}
+</style>
+<div id="score-script" ></div>

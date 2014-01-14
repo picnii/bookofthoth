@@ -1,4 +1,7 @@
 <section class="container">
+	<div class="cover">
+		<a href='#'><img  src="images/cover.jpg" style="height:100px;width:auto"/></a>
+	</div>
 	<div class="register">
 		<form ng-submit="register()" role="form">
 			<div class="form-group">
@@ -22,8 +25,15 @@
 				<label for="repassword_form">Re Password</label>
 				<input id="repassword_form" class="form-control" ng-model="repassword" type="password" required>
 			</div>
-
-			<input type="submit" class="btn" value="Register"/>
+			<label >Avartar</label>
+			<div class="form-group">
+				<div ng-repeat = "avartar in avartars" class="avartar-selected-{{avartar.isSelected}} avartar-choices">
+					<input id="avartar-{{avartar.id}}" type="radio" ng-model="profile_picture" value="images/avartar/{{avartar.name}}" name="profile" ng-show="false">
+					<a href="" ng-click="chooseAvartar(avartar)"><img ng-src="images/avartar/{{avartar.name}}" class="avartar-selected-{{avartar.isSelected}}"  /></a>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+			<input type="submit" class="btn btn-warning btn-lg btn-block" value="Register"/>
 		</form>
 	</div>
 </section>

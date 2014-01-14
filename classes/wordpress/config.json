@@ -1,4 +1,5 @@
 {
+	"id":1,
 	"name":"Wordpress",
 	"code_name":"wordpress",
 	"documents":[
@@ -54,12 +55,14 @@
 	],
 	"apps":[
 		"webmatch",
-		"countdown"
+		"countdown",
+		"score"
 	],
 	"menus":[
 		{"name":"เอกสาร", "url":"document" },
 		{"name":"วิดีโอ", "url":"videos" },
 		{"name":"ไฟล์", "url":"files" }	
 	],
-	"widget":"countdown"
+	"widget":"countdown",
+	"permission":3
 }

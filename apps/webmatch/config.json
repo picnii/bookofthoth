@@ -11,6 +11,12 @@
 		{
 			"name":"ADMIN", "url":"admin", "showIfAdmin":true
 		}
-	]
+	],
+	"app_config":{
+		"max":100,
+		"ftp_server":"192.168.1.30",
+		"default_pwd":"picnii.me",
+		"prefix":"student_"
+	}
 
 }

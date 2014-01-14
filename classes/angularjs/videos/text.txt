@@ -1,0 +1,10 @@
+install // install wordpress
+post // create post
+post2 // set time
+password // set password
+plugin // install plugin
+setting // set post time rename
+tagCategories // tag+cate
+Theme // install theme
+UploadPic // insert Pic
+Widget // set widget
